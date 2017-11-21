@@ -14,9 +14,9 @@ The dockerfile comments should give an insight of what they contain/what they're
 
 I chose to separate functions rather than processes into different containers. This results in two linked containers:
 * db-container
-** based on mariadb
+  * based on mariadb
 * app-container
-** based on the dockerfile
+  * based on the dockerfile
 
 ##Get or create cert files
 This will run in https, so you need cert files to make it work. If you're on a public server, you can run Let's Encrypt using Docker:
@@ -49,7 +49,7 @@ docker run --name db-container \
 
 This `run` command creates shared volumes on the host for the following folders: modules, libraries, backups, sites, themes, tmp and log, to keep your installed modules, themes, and media content when starting a new container and to allow backups and logs to be accessed from the host.
 
-Fill in the xxx in the EXAMPLE files and remove .EXAMPLE from the file name before running.
+Fill in the xxx in the EXAMPLE files and remove .EXAMPLE from the filenames before running.
 
 ```
 docker build -t oqpio/drupalapp:8.4.x .
@@ -103,7 +103,7 @@ views_photo_grid
 
 ## Contributing
 
-You're welcome to submit issues on this setup code or on oqp.io 's features, in English or French, or to submit PRs.
+You're welcome to submit issues on this setup code or on oqp.io's features, in English or French, or to submit PRs.
 
 ## To Do
 
