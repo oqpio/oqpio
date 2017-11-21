@@ -23,7 +23,6 @@ COPY manifest.json /var/www/html/manifest.json
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN /usr/local/bin/composer config repositories.drupal composer https://packages.drupal.org/8
-RUN /usr/local/bin/composer require drupal/geolocation:2.x-dev
 RUN /usr/local/bin/composer require drupal/image_effects:~2.0
 RUN /usr/local/bin/composer global require drush/drush:8.*
 ENV PATH /root/.composer/vendor/drush/drush/:$PATH
@@ -32,8 +31,7 @@ ENV PATH /root/.composer/vendor/drush/drush/:$PATH
 COPY ssmtp.conf /etc/ssmtp/ssmtp.conf
 
 RUN groupadd ssmtp \
-    && chown :ssmtp /etc/ssmtp/ssmtp.conf \
-    && chown :ssmtp /etc/ssmtp/ \
+    && chown -R :ssmtp /etc/ssmtp/ \
     && chmod 640 /etc/ssmtp/ssmtp.conf \
     && chown :ssmtp /usr/sbin/ssmtp \
     && chmod g+s /usr/sbin/ssmtp
