@@ -1,0 +1,25 @@
+{
+    "lang": "fr",
+    "name": "oqp.io",
+    "short_name": "oqp",
+    "description": "Sur oqp.io, tout le monde peut recenser les logements vacants et proposer des améliorations pour les remettre sur le marché.",
+    "icons": [
+        {
+            "src": "/themes/custom/oqpio/logo_oqpio_128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },{
+            "src": "/themes/custom/oqpio/logo_oqpio_300.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },{
+            "src": "/themes/custom/oqpio/logo_oqpio_512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/add-resource",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#00957c"
+}
