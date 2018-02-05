@@ -18,7 +18,7 @@ I chose to separate functions rather than processes into different containers. T
 * app-container
   * based on the dockerfile
 
-##Get or create cert files
+## Get or create cert files
 This will run in https, so you need cert files to make it work. If you're on a public server, you can run Let's Encrypt using Docker:
 ```
 docker run -it \
