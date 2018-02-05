@@ -1,8 +1,8 @@
-FROM drupal:8.4.2
+FROM drupal:8.4.4
 MAINTAINER Julien Carnot oqp.io
 
 # Add ssmtp for mail notifications, mysql-client to connect with drush and rsyslog to log in files, in order to use fail2ban from the host
-RUN apt-get update && apt-get install -y ssmtp mysql-client rsyslog vim wget libmagickwand-dev libfreetype6 libpng12-dev libjpeg62-turbo-dev php5-imagick libimage-exiftool-perl git --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y ssmtp mysql-client rsyslog vim wget libmagickwand-dev libfreetype6 libpng12-dev libjpeg62-turbo-dev  libimage-exiftool-perl git --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 # Enable syslog for drupal
 RUN echo "local0.* /var/log/drupal.log" >> /etc/rsyslog.conf
@@ -23,6 +23,7 @@ COPY manifest.json /var/www/html/manifest.json
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN /usr/local/bin/composer config repositories.drupal composer https://packages.drupal.org/8
+RUN /usr/local/bin/composer require drupal/address
 RUN /usr/local/bin/composer require drupal/image_effects:~2.0
 RUN /usr/local/bin/composer global require drush/drush:8.*
 ENV PATH /root/.composer/vendor/drush/drush/:$PATH
